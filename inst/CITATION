@@ -1,0 +1,13 @@
+citHeader("Please cite stargazer in publications as:")
+
+citEntry(
+  entry="Manual",
+  title = "stargazer: Well-Formatted Regression and Summary Statistics Tables",
+  author = as.person("Marek Hlavac"),
+  year = "2015",
+  note = "R package version 5.2",
+  organization = "Harvard University",
+  address = "Cambridge, USA",
+  textVersion = "Hlavac, Marek (2015). stargazer: Well-Formatted Regression and Summary Statistics Tables. R package version 5.2. http://CRAN.R-project.org/package=stargazer",
+  url = "http://CRAN.R-project.org/package=stargazer"
+)
