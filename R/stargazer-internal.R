@@ -250,21 +250,24 @@ function(libname, pkgname) {
     style <- tolower(what.style)
   
     if (style == "all") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","=!","notes")  
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","-!","notes")  
       .format.coefficient.table.parts <<- c("variable name","coefficient*","standard error","t-stat","p-value")  
     }
   
     else if (style == "all2") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","=!","notes")  
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","_!","notes")  
       .format.coefficient.table.parts <<- c("variable name","coefficient*","standard error")  
     }
   
     # aer = American Economic Review
     else if (style == "aer") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","-!","notes")
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
     
+      .format.space.size <- "-1.6ex"
+      
+      
       .format.until.nonzero.digit <<- FALSE
       .format.max.extra.digits <<- 0    
     
@@ -278,7 +281,7 @@ function(libname, pkgname) {
   
     # ajps = American Journal of Political Science
     else if (style == "ajps") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("!-","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","!-","notes")    
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       .format.digit.separator <<- ""
@@ -479,9 +482,9 @@ function(libname, pkgname) {
   
     # "qje" = Quarterly Journal of Economics
     else if (style=="qje") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","=!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")    
       .format.dependent.variable.text.on <<- FALSE
-      .format.s.stat.parts <<- c("-!","stat names","=","statistics1","=!","notes")
+      .format.s.stat.parts <<- c("-!","stat names","=","statistics1","-!","notes")
       .format.N <<- "\\textit{N}"
       .format.note <<- "\\textit{Notes:}"
       .format.note.content <<- c("$^{***}$Significant at the [***] percent level.", "$^{**}$Significant at the [**] percent level.", "$^{*}$Significant at the [*] percent level.") 
@@ -625,8 +628,14 @@ function(libname, pkgname) {
   	# coefficient variable name
   	if (part=="variable name") {
     
+  	  ##HERE
+ 
+  	  if (!is.null(attr(.summary.object$model[[variable.name]], "label"))) {
+  	    cat(" ", .format.coefficient.variables.left, attr(.summary.object$model[[variable.name]], "label"), .format.coefficient.variables.right, sep="") 
+  	  }
+  	  
   		# use intercept name for intercept, otherwise variable name
-      if (is.na(.format.covariate.labels[.which.variable.label])) {
+      else if (is.na(.format.covariate.labels[.which.variable.label])) {
         if (.format.coefficient.variables.capitalize == TRUE) { cat(" ", .format.coefficient.variables.left, toupper(variable.name), .format.coefficient.variables.right, sep="") }
   		  else { cat(" ", .format.coefficient.variables.left, variable.name, .format.coefficient.variables.right, sep="") }
       }
@@ -861,19 +870,21 @@ function(libname, pkgname) {
 
   	# horizontal line
   	else if (part=="-") {
-  		cat("\\hline ")
-  		.table.insert.space()
-  		cat(" \n")
+  		cat("\\midrule \n ")
   	}
 
   	# double horizontal line
   	else if (part=="=") {
-  		cat("\\hline \n") 
-  		cat("\\hline ")
-  		.table.insert.space()
-  		cat(" \n")
+  		cat("\\toprule \n") 
   	}
 
+    
+    # double horizontal line
+    else if (part=="_") {
+      cat("\\bottomrule \n") 
+    }
+    
+    
   }
 
   .coefficient.variables <-
@@ -1085,6 +1096,7 @@ function(libname, pkgname) {
   	temp <- strsplit(written.var,"$",fixed=TRUE)
   	written.var <- temp[[1]][length(temp[[1]])]
   	
+  	
   	# if underscore or ^, etc. in variable name, then insert an escape \ before it
   	written.var <- .remove.special.chars(written.var)
   	
@@ -1229,6 +1241,8 @@ function(libname, pkgname) {
                             "cloglog.net", "gamma.net", "logit.net", "probit.net", "brglm", "glm()", "Glm()", "svyglm()", "plm", "pgmm", "ivreg", "lmrob", "glmrob", "dynlm", "rq", "gmm","mclogit","felm")) {
   		return(.summary.object$coefficients[,4])
   	}
+ 
+
     if (model.name %in% c("censReg")) {
       return(.summary.object$estimate[,4])
     }
@@ -1502,6 +1516,7 @@ function(libname, pkgname) {
                             "cloglog.net", "gamma.net", "logit.net", "probit.net", "brglm", "glm()", "Glm()", "svyglm()", "plm", "pgmm", "ivreg", "lmrob", "glmrob", "dynlm", "gmm","mclogit")) {
   		return(.summary.object$coefficients[,"Std. Error"])
   	}
+
   	if (model.name %in% c("Arima")) {
   	  return(sqrt(diag(object.name$var.coef)))
   	}
@@ -3204,7 +3219,7 @@ function(libname, pkgname) {
   	# table header
 	
   	.table.header()
-  	.table.insert.space()
+  	#.table.insert.space()
 
   	.table.part.published <<- as.vector(rep(NA, times=length(.format.table.parts)))    # to keep track what has been published (to deal intelligently with horizontal lines)
   	.publish.horizontal.line <<- TRUE   # should non-compulsory horizontal lines be published? (yes, if something else published since the previous line)
@@ -3242,7 +3257,7 @@ function(libname, pkgname) {
 
   	# dependent variables
   	else if (part=="dependent variables") {
-  		.table.insert.space()
+  		
   		cat(.format.dependent.variables.text)
   		how.many.columns <- 0
       label.counter <- 0
@@ -3296,7 +3311,7 @@ function(libname, pkgname) {
   	else if (part=="models")  {
      	   if ((.format.model.names.include==TRUE) & ((.format.models.skip.if.one == FALSE) | ((.format.models.skip.if.one == TRUE) & (length(unique(.global.models))>=2)))) {
 		
-  		.table.insert.space()
+  	#	.table.insert.space()
   		cat(.format.models.text)
  
   		# rename models based on .formatting preferences
@@ -3450,7 +3465,7 @@ function(libname, pkgname) {
   	# numbers
   	else if (part=="numbers") {
       if ((.format.model.numbers == TRUE) & (length(.global.models)>1)) {
-  		  .table.insert.space()
+  		 # .table.insert.space()
   		  cat(.format.numbers.text)
   		  for (i in seq(1:length(.global.models))) {
           if (.format.dec.mark.align==TRUE) {
@@ -3487,6 +3502,7 @@ function(libname, pkgname) {
 
   	## coefficients
   	else if (part=="coefficients") { 		
+  	  .table.insert.space()
   		.which.variable.label <<- 0
   		if (is.null(.format.covariate.labels)) { .format.covariate.labels <<- NA }
 		
@@ -3597,17 +3613,15 @@ function(libname, pkgname) {
 
   	# single horizontal line, no matter what
   	else if (part=="-!") {
-  		cat("\\hline ")
-  		.table.insert.space()
-  		cat(" \n") 
+  		cat("\\midrule ")
   		.table.part.published[which.part.number] <<- TRUE
   	}
 
   	# single horizontal line, optional
   	else if (part=="-") {
   		if (.publish.horizontal.line==TRUE) {
-  			cat("\\hline ")
-  			.table.insert.space()
+  			cat("\\midrule ")
+
   			cat(" \n") 
   			.table.part.published[which.part.number] <<- TRUE
   		}
@@ -3615,20 +3629,28 @@ function(libname, pkgname) {
 
   	# double horizontal line, no matter what
   	else if (part=="=!") {
-  		cat("\\hline \n") 
-  		cat("\\hline ")
-  		.table.insert.space()
-  		cat(" \n")
+  	  cat("\\toprule \n")
   		.table.part.published[which.part.number] <<- TRUE
   	}
 
   	# double horizontal line
   	else if (part=="=") {
   		if (.publish.horizontal.line==TRUE) {
-  			cat("\\hline \n") 
-  			cat("\\hline ")
-  			.table.insert.space()
-  			cat(" \n") 
+  		  cat("\\toprule \n")
+  			.table.part.published[which.part.number] <<- TRUE
+  		}
+  	}
+  	
+  	# bottom  horizontal line, no matter what
+  	else if (part=="_!") {
+  	  cat("\\bottomrule \n")
+  	  .table.part.published[which.part.number] <<- TRUE
+  	}
+  	
+  	# double horizontal line
+  	else if (part=="_") {
+  	  if (.publish.horizontal.line==TRUE) {
+  	    cat("\\bottomrule \n")
   			.table.part.published[which.part.number] <<- TRUE
   		}
   	}
@@ -3716,6 +3738,7 @@ function(libname, pkgname) {
     s.out <- gsub("*","\\textasteriskcentered ",s.out,fixed=TRUE)
     s.out <- gsub("|","\\textbar ",s.out,fixed=TRUE)
     s.out <- gsub(">","\\textgreater ",s.out,fixed=TRUE)
+    s.out <- gsub("<","\\textless ",s.out,fixed=TRUE)
     s.out <- gsub("<","\\textless ",s.out,fixed=TRUE)
     
     # more substitutions
@@ -3930,7 +3953,6 @@ function(libname, pkgname) {
     function(object) {
       .floating.header()
       
-      .formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}} ", sep="")
       for (i in seq(1:(length(names(object))))) {
         if (.format.dec.mark.align == FALSE) {
           .formatting.alignment <- paste(.formatting.alignment, "c", sep="")
@@ -3970,7 +3992,7 @@ function(libname, pkgname) {
       
       #create table header
       .data.frame.table.header(object)
-      .table.insert.space()
+     # .table.insert.space()
       
       .table.part.published <<- as.vector(rep(NA, times=length(.format.s.stat.parts)))    # to keep track what has been published (to deal intelligently with horizontal lines)
       .publish.horizontal.line <<- TRUE   # should non-compulsory horizontal lines be published? (yes, if something else published since the previous line)
@@ -4161,36 +4183,38 @@ function(libname, pkgname) {
     
     # horizontal line
     else if (part=="-!") {
-      cat("\\hline ")
-      .table.insert.space()
-      cat(" \n")
+      cat("\\midrule \n ")
       .table.part.published[which.part.number] <<- TRUE
     }
     
     else if (part=="-") {
       if (.publish.horizontal.line==TRUE) {
-        cat("\\hline ")
-        .table.insert.space()
-        cat(" \n")
+        cat("\\midrule ")
         .table.part.published[which.part.number] <<- TRUE
       }
     }
     
     # double horizontal line
     else if (part=="=!") {
-      cat("\\hline \n") 
-      cat("\\hline ")
-      .table.insert.space()
-      cat(" \n")
+      cat("\\toprule \n") 
       .table.part.published[which.part.number] <<- TRUE
     }
     
     else if (part=="=") {
       if (.publish.horizontal.line==TRUE) {
-        cat("\\hline \n") 
-        cat("\\hline ")
-        .table.insert.space()
-        cat(" \n")
+        cat("\\toprule \n") 
+        .table.part.published[which.part.number] <<- TRUE
+      }
+    }
+    
+    else if (part=="_!") {
+      cat("\\bottomrule \n") 
+      .table.part.published[which.part.number] <<- TRUE
+    }
+    
+    else if (part=="_") {
+      if (.publish.horizontal.line==TRUE) {
+        cat("\\bottomrule \n") 
         .table.part.published[which.part.number] <<- TRUE
       }
     }
@@ -4214,7 +4238,7 @@ function(libname, pkgname) {
       
   	  # create table header
   	  .summ.stat.table.header(object)
-  	  .table.insert.space()
+  	  #.table.insert.space()
 
   	  for (i in seq(1:length(.format.s.stat.parts))) {
     		.summ.stat.table.part(object,.format.s.stat.parts[i])
@@ -4301,8 +4325,9 @@ function(libname, pkgname) {
   function(object) {
     .floating.header()
 
-    #
-    .formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}}l", sep="")
+   
+     #.formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}}l", sep="")
+    .formatting.alignment <- paste("{{",.format.column.sep.width,"}}l", sep="")
     
     if (.format.flip == FALSE) { width <- length(.format.s.statistics.list) }
     else { width <- length(.summ.stat.included(object)) }
@@ -4530,14 +4555,14 @@ function(libname, pkgname) {
 
   	# horizontal line
   	else if (part=="-!") {
-  		cat("\\hline ")
+  		cat("\\midrule ")
   		.table.insert.space()
   		cat(" \n")
   	}
     
     else if (part=="-") {
       if (.publish.horizontal.line==TRUE) {
-        cat("\\hline ")
+        cat("\\midrule ")
         .table.insert.space()
         cat(" \n")
       }
@@ -4545,18 +4570,25 @@ function(libname, pkgname) {
 
   	# double horizontal line
   	else if (part=="=!") {
-  		cat("\\hline \n") 
-  		cat("\\hline ")
-  		.table.insert.space()
+  		cat("\\toprule \n") 
   		cat(" \n")
   	}
     
     else if (part=="=") {
       if (.publish.horizontal.line==TRUE) {
-        cat("\\hline \n") 
-        cat("\\hline ")
-        .table.insert.space()
-        cat(" \n")
+        cat("\\toprule \n") 
+      }
+    }
+    
+    else if (part=="_") {
+      if (.publish.horizontal.line==TRUE) {
+        cat("\\bottomrule \n") 
+      }
+    }
+    
+    else if (part=="_") {
+      if (.publish.horizontal.line==TRUE) {
+        cat("\\bottomrule \n") 
       }
     }
   }
@@ -4564,11 +4596,7 @@ function(libname, pkgname) {
   .table.empty.line <-
   function() {
     if (.format.no.space == FALSE) {
-  	  cat(" ")
-  	  for (i in seq(1:length(.global.models))) {
-  		  cat("& ")
-  	  }
-  	  cat("\\\\ \n")
+  	  cat("\\addlinespace \n")
     }
   }
 
@@ -4630,6 +4658,9 @@ function(libname, pkgname) {
       # if underscore or ^ in variable name, then insert an escape \ before it
       local.coefficient.var.name <- .remove.special.chars(local.coefficient.var.name)
       
+      local.coefficient.var.name <- gsub(":"," $\\times$ ",local.coefficient.var.name,fixed=TRUE)
+      
+      
   		if (length(.format.coefficient.table.parts)>=1) {
   			for (i in seq(1:length(.format.coefficient.table.parts))) {
   				.coefficient.table.part(part=.format.coefficient.table.parts[i], which.variable, variable.name=local.coefficient.var.name)
@@ -4642,8 +4673,10 @@ function(libname, pkgname) {
   function() {
       .floating.header()
 
-      #
-      .formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}}l", sep="")
+      
+    .formatting.alignment <- paste("@{\\hspace{","5pt","}}l@{\\hspace{","-5pt","}}", sep="")
+    #.formatting.alignment <- paste("l", sep="")
+    
       for (i in seq(1:length(.global.models))) {
   	    if (.format.dec.mark.align==FALSE) {
           .formatting.alignment <- paste(.formatting.alignment, "c", sep="")
@@ -6385,7 +6418,7 @@ function(libname, pkgname) {
     .global.intercept.strings <- c("(Intercept)", "(intercept)","Intercept")
     
     # .formatting: Default
-    .format.space.size <- "-1.8ex"
+    .format.space.size <- "-2.1ex"
     
     .format.dependent.variable.text <- "\\textit{Dependent variable:}"
     .format.dependent.variable.text.underline <- TRUE
