@@ -3323,7 +3323,7 @@ function(libname, pkgname) {
             label.counter <- label.counter + 1
           }
           else {
-            midrule.line <- paste(midrule.line, paste(" \\cmidrule(lr){", label.counter+1, "-", label.counter+1, "}", sep="") , sep = "")
+            midrule.line <- paste(midrule.line, paste(" \\cmidrule(rr){", label.counter+1, "-", label.counter+how.many.columns, "}", sep="") , sep = "")
             label.counter <- label.counter + how.many.columns 
             
           }
