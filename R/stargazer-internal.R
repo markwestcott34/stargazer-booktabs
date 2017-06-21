@@ -3303,6 +3303,8 @@ function(libname, pkgname) {
 	  	cat(" \\\\ \n")
       how.many.columns <- 0
       label.counter <- 1
+      how.many.different.models <- 0
+      midrule.line  <- ""
       
       for (i in seq(1:length(.global.models))) {
         if (is.null(.format.dep.var.labels)) { .format.dep.var.labels <<- NA }
@@ -3317,20 +3319,24 @@ function(libname, pkgname) {
         
         if (different.dependent.variable == TRUE) {
           if (how.many.columns == 1) {
-             cat(" \\cmidrule(lr){", label.counter+1, "-", label.counter+1, "}", sep="") 
+            midrule.line <- paste(midrule.line, paste(" \\cmidrule(lr){", label.counter+1, "-", label.counter+1, "}", sep="") , sep = "")
             label.counter <- label.counter + 1
           }
           else {
-            {cat(" \\cmidrule(rr){",1+ label.counter,"-", how.many.columns + label.counter,"}", sep="")}
+            midrule.line <- paste(midrule.line, paste(" \\cmidrule(lr){", label.counter+1, "-", label.counter+1, "}", sep="") , sep = "")
             label.counter <- label.counter + how.many.columns 
             
           }
           
           how.many.columns <- 0
+          how.many.different.models <- how.many.different.models + 1
         }
       }
       
-	  	cat("\n")
+      if(how.many.different.models != length(.global.models)) {
+         cat(midrule.line)
+	  	   cat("\n")
+      }
 
   		.table.part.published[which.part.number] <<- TRUE
   	}
