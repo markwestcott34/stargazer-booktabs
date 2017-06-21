@@ -1,0 +1,96 @@
+---
+title: "stargazer-booktabs examples"
+author: "Mark Westcott"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+   keep_tex: true
+   includes:
+     in_header: header.tex
+---
+
+```{r, echo=F, warning=F,message=F}
+library(stargazer)
+```
+
+```{r,echo=F}
+t <- data.frame(Income = runif(20), 
+                Wealth = runif(20), 
+                Children = runif(20), 
+                Age = runif(20), 
+                male = rep(c(T,F),times=10))
+```
+
+
+
+# Columns for different dependent variables
+
+```{r, echo = F}
+c1 <- lm(Income ~ Age, data = t, subset = male == T)
+c2 <- lm(Wealth ~ Age, data = t, subset = male == F)
+c3 <- lm(Children ~ Age, data = t)
+```
+
+```{r, results = 'asis'}
+stargazer(c1,c2,c3,
+          style="aer", 
+          omit.table.layout = "n", 
+          omit.stat=c("adj.rsq", "f", "ser"), 
+          omit=c("Constant"), 
+          float=T, 
+          title = "Columns for dependent variables",
+          add.lines = list(c("Controls","N","N","N")))
+
+```
+
+
+# Columns are different subsamples/controls
+
+
+```{r, echo =F }
+c1 <- lm(Income ~ Age, data = t, subset = male == T)
+c2 <- lm(Income ~ Age, data = t, subset = male == F)
+c3 <- lm(Income ~ Age, data = t)
+```
+
+```{r, results = 'asis'}
+stargazer(c1,c2,c3,
+          style="aer", 
+          omit.table.layout = "n", 
+          omit.stat=c("adj.rsq", "f", "ser"), 
+          omit=c("Constant"), 
+          float=T, 
+          title = "Columns for different subsamples/controls",
+          add.lines = list(c("Controls","N","N","N")), 
+          column.labels = c("Men","Women","All"),
+          dep.var.caption = "\\textit{Dependent Variable: Income}",
+          dep.var.labels.include = FALSE)
+```
+
+
+
+
+
+# Mixed
+
+
+
+
+```{r, echo = F}
+c1 <- lm(Income ~ Age, data = t, subset = male == T)
+c2 <- lm(Income ~ Age, data = t, subset = male == F)
+c3 <- lm(Wealth ~ Age, data = t)
+```
+
+```{r, results = 'asis'}
+stargazer(c1,c2,c3, 
+          style="aer", 
+          omit.table.layout = "n", 
+          omit.stat=c("adj.rsq", "f", "ser"), 
+          omit=c("Constant"), 
+          float=T, 
+          title = "Mixed",
+          add.lines = list(c("Controls","N","N","N")), 
+          column.labels = c("Men","Women","All"))
+```
+

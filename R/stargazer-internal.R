@@ -4709,7 +4709,7 @@ function(libname, pkgname) {
       .floating.header()
 
       
-    .formatting.alignment <- paste("@{\\hspace{","5pt","}}l@{\\hspace{","-5pt","}}", sep="")
+    .formatting.alignment <- paste("@{\\hspace{","5pt","}}l@{\\hspace{","5pt","}}", sep="")
     #.formatting.alignment <- paste("l", sep="")
     
       for (i in seq(1:length(.global.models))) {
