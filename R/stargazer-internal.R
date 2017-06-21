@@ -261,9 +261,10 @@ function(libname, pkgname) {
   
     # aer = American Economic Review
     else if (style == "aer") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","-","additional","-","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
+      .format.underline.models <- TRUE
       .format.models.skip.if.one <<- TRUE
-      .format.dependent.variable.text.on <<- FALSE
+     # .format.dependent.variable.text.on <<- FALSE
     
       .format.space.size <- "-1.6ex"
       
@@ -871,11 +872,6 @@ function(libname, pkgname) {
   	# horizontal line
   	else if (part=="-") {
   		cat("\\midrule \n ")
-  	}
-
-  	# double horizontal line
-  	else if (part=="=") {
-  		cat("\\toprule \n") 
   	}
 
     
@@ -3250,7 +3246,7 @@ function(libname, pkgname) {
   	if (part=="dependent variable label") {
   		if (.format.dependent.variable.text.on == TRUE) { 
         cat(" & \\multicolumn{",length(.global.models),"}{c}{",.format.dependent.variable.text, "} \\\\ \n", sep="")
-  		  if (.format.dependent.variable.text.underline == TRUE) { cat("\\cline{2-",length(.global.models)+1,"} \n", sep="") }
+  		  if (.format.dependent.variable.text.underline == TRUE) { cat("\\cmidrule(rr){2-",length(.global.models)+1,"} \n", sep="") }
       }
   		.table.part.published[which.part.number] <<- TRUE
   	}
@@ -3302,7 +3298,39 @@ function(libname, pkgname) {
 	  			how.many.columns <- 0
 	  		}
 	  	}
+    
+      #Do cmidrules
 	  	cat(" \\\\ \n")
+      how.many.columns <- 0
+      label.counter <- 1
+      
+      for (i in seq(1:length(.global.models))) {
+        if (is.null(.format.dep.var.labels)) { .format.dep.var.labels <<- NA }
+        how.many.columns <- how.many.columns + 1
+        
+        # write down if next column has different dependent variable, or if end of columns
+        different.dependent.variable <- FALSE
+        if (i == length(.global.models)) {different.dependent.variable <- TRUE}
+        else if ((as.character(.global.dependent.variables[i])) != (as.character(.global.dependent.variables[i+1])))  {different.dependent.variable <- TRUE}
+        
+        if (.format.multicolumn==FALSE) { different.dependent.variable <- TRUE }
+        
+        if (different.dependent.variable == TRUE) {
+          if (how.many.columns == 1) {
+             cat(" \\cmidrule(lr){", label.counter+1, "-", label.counter+1, "}", sep="") 
+            label.counter <- label.counter + 1
+          }
+          else {
+            {cat(" \\cmidrule(rr){",1+ label.counter,"-", how.many.columns + label.counter,"}", sep="")}
+            label.counter <- label.counter + how.many.columns 
+            
+          }
+          
+          how.many.columns <- 0
+        }
+      }
+      
+	  	cat("\n")
 
   		.table.part.published[which.part.number] <<- TRUE
   	}
@@ -3311,6 +3339,7 @@ function(libname, pkgname) {
   	else if (part=="models")  {
      	   if ((.format.model.names.include==TRUE) & ((.format.models.skip.if.one == FALSE) | ((.format.models.skip.if.one == TRUE) & (length(unique(.global.models))>=2)))) {
 		
+     	     
   	#	.table.insert.space()
   		cat(.format.models.text)
  
