@@ -250,12 +250,12 @@ function(libname, pkgname) {
     style <- tolower(what.style)
   
     if (style == "all") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","-!","notes")  
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","_!","notes")
       .format.coefficient.table.parts <<- c("variable name","coefficient*","standard error","t-stat","p-value")  
     }
   
     else if (style == "all2") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","_!","notes")  
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*(p)", "SER(df)","F statistic(df)*(p)","chi2(df)*(p)","Wald(df)*(p)","LR(df)*(p)","logrank(df)*(p)","AIC","BIC","UBRE","rho(se)*(p)","Mills(se)*(p)","residual deviance(df)*","null deviance(df)*","_!","notes")
       .format.coefficient.table.parts <<- c("variable name","coefficient*","standard error")  
     }
   
@@ -282,7 +282,7 @@ function(libname, pkgname) {
   
     # ajps = American Journal of Political Science
     else if (style == "ajps") {
-      .format.table.parts <<- c("!-","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","!-","notes")    
+      .format.table.parts <<- c("!=","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       .format.digit.separator <<- ""
@@ -305,12 +305,12 @@ function(libname, pkgname) {
       .format.note <<- ""
       .format.note.content <<- c("$^{***}$p $<$ [.***]; $^{**}$p $<$ [.**]; $^{*}$p $<$ [.*]")
       .format.note.alignment <<- "l"
-      .format.s.stat.parts <<- c("-!","stat names","-","statistics1","-!","notes")
+      .format.s.stat.parts <<- c("-!","stat names","-","statistics1","_!","notes")
     }  
   
     # ajs = American Journal of Sociology
     else if (style == "ajs") {
-      .format.table.parts <<- c(" ","=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","-!","notes")
+      .format.table.parts <<- c(" ","=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variables.capitalize <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
@@ -334,7 +334,7 @@ function(libname, pkgname) {
   
     # apsr = American Political Science Review
     else if (style == "apsr") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       
@@ -353,7 +353,7 @@ function(libname, pkgname) {
     
     # asq = Administrative Science Quarterly
     else if (style == "asq") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       
@@ -382,7 +382,7 @@ function(libname, pkgname) {
   
     # asr = American Sociological Review
     else if (style == "asr") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       
@@ -402,7 +402,7 @@ function(libname, pkgname) {
   
     # "demography" = Demography
     else if (style == "demography") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       
@@ -424,7 +424,7 @@ function(libname, pkgname) {
   
     # io = International Organization
     else if (style == "io") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       
@@ -458,7 +458,7 @@ function(libname, pkgname) {
   
     # jpam = Journal of Policy Analysis and Management
     else if (style == "jpam") {
-      .format.table.parts <<- c("-!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","-!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","AIC","BIC","UBRE","rho(se)*","Mills(se)*","_!","notes")
       .format.models.skip.if.one <<- TRUE
       .format.dependent.variable.text.on <<- FALSE
       
@@ -483,7 +483,7 @@ function(libname, pkgname) {
   
     # "qje" = Quarterly Journal of Economics
     else if (style=="qje") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")    
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","omit","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
       .format.dependent.variable.text.on <<- FALSE
       .format.s.stat.parts <<- c("-!","stat names","=","statistics1","-!","notes")
       .format.N <<- "\\textit{N}"
@@ -493,13 +493,13 @@ function(libname, pkgname) {
   
     # find style based on journal ("default" or other)
     else if (style=="commadefault") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","=!","notes")
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
       .format.digit.separator <<- " "
       .format.decimal.character <<- ","
     }
   
     else if (style=="default") {
-      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","=!","notes")
+      .format.table.parts <<- c("=!","dependent variable label","dependent variables","models","columns","numbers","objects","-","coefficients","-","omit","-","additional","N","R-squared","adjusted R-squared","max R-squared","log likelihood","sigma2","theta(se)*", "AIC","BIC","UBRE","rho(se)*","Mills(se)*", "SER(df)","F statistic(df)*","chi2(df)*","Wald(df)*","LR(df)*","logrank(df)*","_!","notes")
     }
   }
   
@@ -880,6 +880,9 @@ function(libname, pkgname) {
       cat("\\bottomrule \n") 
     }
     
+    else if (part=="_!") {
+      cat("\\bottomrule \n")
+    }
     
   }
 
@@ -4620,7 +4623,7 @@ function(libname, pkgname) {
       }
     }
     
-    else if (part=="_") {
+    else if (part=="_!") {
       if (.publish.horizontal.line==TRUE) {
         cat("\\bottomrule \n") 
       }
@@ -4708,7 +4711,7 @@ function(libname, pkgname) {
       .floating.header()
 
       
-    .formatting.alignment <- paste("@{\\hspace{","5pt","}}l@{\\hspace{","5pt","}}", sep="")
+    .formatting.alignment <- paste("@{\\hspace{",.format.column.sep.width,"}}l@{\\hspace{",.format.column.sep.width,"}}", sep="")
 
       for (i in seq(1:length(.global.models))) {
   	    if (.format.dec.mark.align==FALSE) {
@@ -5713,7 +5716,7 @@ function(libname, pkgname) {
       line <- latex.code[i]
       if ((substr(line, 1, 7) == "\\begin{") & (regexpr("}}",line,fixed=TRUE)[[1]] != -1)) {
         formatting.string <- substr(line, regexpr("}}",line,fixed=TRUE)[[1]]+2, nchar(line)-2)
-        formatting.string <- gsub("@\\{\\\\hspace\\{5pt}}","",formatting.string) 
+        formatting.string <- gsub(paste0("@\\{\\\\hspace\\{",.format.column.sep.width,"}}"),"",formatting.string)
       }
     }
     
@@ -6643,7 +6646,7 @@ function(libname, pkgname) {
     
     #### summary statistic table
     .format.s.statistics.names <- cbind(c("n","N"), c("nmiss","missing"), c("mean","Mean"), c("sd","St. Dev."), c("median","Median"), c("min","Min"), c("max","Max"), c("mad","Median Abs. Dev."), c("p","Pctl(!)"))
-    .format.s.stat.parts <- c("=!","stat names","-","statistics1","-!","notes")
+    .format.s.stat.parts <- c("=!","stat names","-","statistics1","_!","notes")
     .format.s.statistics.list <- c("n","mean","sd","min","p25","median","p75","max")
     
     .format.s.statistics.names.left <- ""
