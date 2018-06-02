@@ -4361,9 +4361,8 @@ function(libname, pkgname) {
     .floating.header()
 
    
-     #.formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}}l", sep="")
-    .formatting.alignment <- paste("{{",.format.column.sep.width,"}}l", sep="")
-    
+    .formatting.alignment <- paste("@{\\hspace{",.format.column.sep.width,"}}l", sep="")
+
     if (.format.flip == FALSE) { width <- length(.format.s.statistics.list) }
     else { width <- length(.summ.stat.included(object)) }
     
