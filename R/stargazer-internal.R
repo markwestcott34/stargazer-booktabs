@@ -4710,8 +4710,7 @@ function(libname, pkgname) {
 
       
     .formatting.alignment <- paste("@{\\hspace{","5pt","}}l@{\\hspace{","5pt","}}", sep="")
-    #.formatting.alignment <- paste("l", sep="")
-    
+
       for (i in seq(1:length(.global.models))) {
   	    if (.format.dec.mark.align==FALSE) {
           .formatting.alignment <- paste(.formatting.alignment, "c", sep="")
@@ -5288,7 +5287,6 @@ function(libname, pkgname) {
       }
     
       how.many.columns <- .get.number.of.columns(latex.code)
-    
       r <- 0
     
       matrices <- .matrices(latex.code, how.many.columns)
@@ -5715,7 +5713,8 @@ function(libname, pkgname) {
     for (i in 1:length(latex.code)) {
       line <- latex.code[i]
       if ((substr(line, 1, 7) == "\\begin{") & (regexpr("}}",line,fixed=TRUE)[[1]] != -1)) {
-        formatting.string <- substr(line, regexpr("}}",line,fixed=TRUE)[[1]]+2, nchar(line)-1)
+        formatting.string <- substr(line, regexpr("}}",line,fixed=TRUE)[[1]]+2, nchar(line)-2)
+        formatting.string <- gsub("@\\{\\\\hspace\\{5pt}}","",formatting.string) 
       }
     }
     
