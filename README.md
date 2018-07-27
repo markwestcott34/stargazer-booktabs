@@ -2,7 +2,7 @@
 
 This is a slightly modified version of the excellent [stargazer](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf) package by Marek Hlavac.
 
-In contrast to the main package, this fork outputs tables which use the booktabs commands `\toprule` `\midrule` and `\bottomrrule` for horizontal rules. 
+In contrast to the main package, this fork outputs tables which use the booktabs commands `\toprule` `\midrule` and `\bottomrule` for horizontal rules. 
 
 
 To install:
