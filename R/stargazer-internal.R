@@ -3990,6 +3990,8 @@ function(libname, pkgname) {
   .data.frame.table.header <-
     function(object) {
       .floating.header()
+	    
+      .formatting.alignment <- paste("@{\\extracolsep{",.format.column.sep.width,"}} ", sep="")
       
       for (i in seq(1:(length(names(object))))) {
         if (.format.dec.mark.align == FALSE) {
